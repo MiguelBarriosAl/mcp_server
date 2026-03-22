@@ -1,0 +1,31 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+.venv/
+env/
+venv/
+
+# Distribution / packaging
+build/
+dist/
+*.egg-info/
+
+# IDEs
+.vscode/
+.idea/
+
+# dotenv and secrets
+.env
+
+# pytest
+.pytest_cache/
+
+# mypy
+.mypy_cache/
+.env
+__pycache__
+.venv
+.DS_Store
