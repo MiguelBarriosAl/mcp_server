@@ -61,9 +61,15 @@ class MCPClient:
     #     # TODO: Get a particular prompt defined by the MCP server
     #     return []
 
-    # async def read_resource(self, uri: str) -> Any:
-    #     # TODO: Read a resource, parse the contents and return it
-    #     return []
+    async def read_resource(self, uri: str) -> Any:
+        result = await self.session().read_resource(AnyUrl(uri))
+        resource = result.contents[0]
+        
+        if isinstance(resource, types.TextResourceContents):
+            if resource.mimeType == "application/json":
+                return json.loads(resource.text)
+        
+        return resource.text
 
     async def list_tools(self) -> list[types.Tool]:
         result = await self.session().list_tools()
